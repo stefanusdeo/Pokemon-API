@@ -74,9 +74,7 @@ const DetailPokemon = (props) => {
             </Row>
             <Card.Footer>
               <Row>
-                <Col xs={6} className='d-flex justify-content-start'>
-                  <button className='btn btn-sm btn-primary'>Tangkap!</button>
-                </Col>
+                <Col xs={6} className='d-flex justify-content-start'></Col>
                 <Col xs={6} className='d-flex justify-content-end'>
                   <button
                     className='btn btn-sm btn-secondary'

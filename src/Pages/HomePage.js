@@ -12,7 +12,6 @@ import Button from '@restart/ui/esm/Button';
 const HomePage = () => {
   const [pokemon, setPokemon] = useState();
   const [loading, setLoading] = useState(true);
-  const [bag, setBag] = useState([]);
 
   const getPokemonData = async (i) => {
     const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`);
@@ -49,14 +48,38 @@ const HomePage = () => {
 
   const tangkapHandler = async (id) => {
     const localDb = localStorage.getItem('dbPokemon');
+    const localBag = localStorage.getItem('dbBag');
+
     const dbPokemon = JSON.parse(localDb);
     const dataArr = [];
     const dapat = async () => {
-      dataArr.push(await getPokemonData(id));
-      console.log(dataArr);
+      if (localBag === null) {
+        dataArr.push(await getPokemonData(id));
+
+        localStorage.setItem('dbBag', JSON.stringify(dataArr));
+        for (let index = 0; index < dbPokemon.length; index++) {
+          if (dbPokemon[index].data.id === id) {
+            dbPokemon.splice(index, 1);
+          }
+        }
+        console.log(dataArr);
+        alert('Yesss Dapatt!!!');
+        setPokemon(dbPokemon);
+        setLoading(false);
+      } else {
+        let BagArr = JSON.parse(localBag);
+        BagArr.push(await getPokemonData(id));
+        localStorage.setItem('dbBag', JSON.stringify(BagArr));
+        for (let index = 0; index < dbPokemon.length; index++) {
+          if (dbPokemon[index].data.id === id) {
+            dbPokemon.splice(index, 1);
+          }
+        }
+        setPokemon(dbPokemon);
+        setLoading(false);
+      }
     };
     const kabur = () => {
-      console.log(dbPokemon);
       for (let index = 0; index < dbPokemon.length; index++) {
         if (dbPokemon[index].data.id === id) {
           dbPokemon.splice(index, 1);
@@ -65,7 +88,6 @@ const HomePage = () => {
       alert('yahh kabur');
       setPokemon(dbPokemon);
       localStorage.setItem('dbPokemon', JSON.stringify(dbPokemon));
-      console.log(dbPokemon);
       setLoading(false);
     };
     // probabilitas 50%
