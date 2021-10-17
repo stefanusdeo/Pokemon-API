@@ -65,6 +65,7 @@ const HomePage = () => {
         console.log(dataArr);
         alert('Yesss Dapatt!!!');
         setPokemon(dbPokemon);
+        localStorage.setItem('dbPokemon', JSON.stringify(dbPokemon));
         setLoading(false);
       } else {
         let BagArr = JSON.parse(localBag);
@@ -76,6 +77,7 @@ const HomePage = () => {
           }
         }
         setPokemon(dbPokemon);
+        localStorage.setItem('dbPokemon', JSON.stringify(dbPokemon));
         setLoading(false);
       }
     };
