@@ -77,6 +77,7 @@ const HomePage = () => {
           }
         }
         setPokemon(dbPokemon);
+        alert('Yesss Dapatt!!!');
         localStorage.setItem('dbPokemon', JSON.stringify(dbPokemon));
         setLoading(false);
       }
