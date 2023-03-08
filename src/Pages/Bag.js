@@ -12,6 +12,7 @@ const Bag = () => {
 
   const getPokemon = () => {
     const localBag = localStorage.getItem("dbBag");
+    console.log(localBag);
     if (localBag) {
       const dbPokemon = JSON.parse(localBag);
       setPokemon(dbPokemon);
