@@ -85,7 +85,7 @@ const DetailPokemon = (props) => {
               </Row>
             </Card.Footer>
           </Card>
-          <h2 className="mt-2">Sepcies of {pokemon.data.species.name}</h2>
+          <h2 className="mt-2">Species of {pokemon.data.species.name}</h2>
           <Row>
             {speciest.map((p) => (
               <Col key={p.pokemon.name} md={6} xs={12}>
