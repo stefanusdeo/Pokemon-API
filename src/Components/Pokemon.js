@@ -1,4 +1,4 @@
-import Button from "@restart/ui/esm/Button";
+// import Button from "@restart/ui/esm/Button";
 import React from "react";
 import { Card, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -52,12 +52,12 @@ const Pokemon = (props) => {
             </Link>
           </Col>
           <Col xs={6} className="d-flex justify-content-end">
-            <Button
+            <button
               onClick={() => tangkapHandler(props.pokemon.id)}
               className="btn btn-sm btn-primary"
             >
               Tangkap
-            </Button>
+            </button>
           </Col>
         </Row>
       </Card.Footer>

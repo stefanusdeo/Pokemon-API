@@ -7,7 +7,6 @@ import Loader from "../Components/Loader";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faSuitcase } from "@fortawesome/free-solid-svg-icons";
-import Button from "@restart/ui/esm/Button";
 
 const HomePage = () => {
   const [pokemon, setPokemon] = useState();
@@ -120,10 +119,10 @@ const HomePage = () => {
             <p>Click untuk Tangkap!!</p>
             <Row>
               <Col md={6} xs={6} className="d-flex justify-content-start">
-                <Button onClick={getPokemon} className="btn btn-success">
+                <button onClick={getPokemon} className="btn btn-success">
                   <FontAwesomeIcon icon={faSearch} className="me-2" />
                   Cari Lagi
-                </Button>
+                </button>
               </Col>
               <Col md={6} xs={6} className="d-flex justify-content-end">
                 <Link to="/tas" className="btn btn-secondary">
